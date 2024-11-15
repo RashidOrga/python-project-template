@@ -4,5 +4,5 @@
     "project_owner": "Last_name First_Name",
     "project_owner_email": "{{ cookiecutter.project_owner.lower().replace(' ','.') }}@gmail.com",
     "description": "Skeleton project created by Cookiecutter PyPackage",
-    "version":"0.0.7"
+    "version":"0.0.8"
 }
