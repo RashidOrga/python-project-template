@@ -40,6 +40,7 @@ The generated project will include the following structure:
 {{ cookiecutter.project_slug }}/
 .
 ├── .created_from
+├── .bumpversion.cfg
 ├── CodeOwner
 ├── README.md
 ├── datas
@@ -60,11 +61,32 @@ The generated project will include the following structure:
         └── __init__.py
 ```
 
-- dockerfile: Configuration for Docker to containerize the application.
-- envs/: Environment configuration files to manage dependencies.
-- src/: Source code directory for application development.
-- tests/: Directory for unit and integration tests.
+- .created_from: Metadata file indicating the origin of the generated project (e.g., link to the template or the version used).
 
+- .bumpversion.cfg: Configuration file for bump2version, used to manage semantic versioning of your project.
+
+- CodeOwner: Defines code owners for specific parts of the project. Useful for managing PR reviews and approvals.
+
+- README.md: The main documentation file for the generated project.
+
+- datas/: Directory for storing datasets or data files used by the project. This is useful for machine learning models, analysis, or any data-driven applications. You can organize this folder by using subfolders for raw, processed, and output data.
+
+- Dockerfile: Configuration file for Docker to containerize the application. It defines the environment and dependencies required to run the project in a container.
+
+- docs/: Contains documentation files for the project. This could include API documentation, design documents, user guides, etc.
+
+- envs/: Environment configuration files to manage dependencies. The requirements.txt lists Python packages for a pip-based environment, while environment.yml is for Conda environments.
+
+- examples/: This directory holds example scripts or Jupyter notebooks demonstrating how to use the project or its components.
+
+- src/: Source code directory for application development. Typically divided into:
+
+  - backend/: Contains server-side code, such as APIs.
+  - frontend/: Placeholder for front-end assets (e.g., HTML, CSS, JavaScript) if applicable.
+- tests/: Directory for unit and integration tests to ensure code quality and functionality.
+
+  - integration/: Tests that validate how different parts of the system work together.
+  - unitary/: Unit tests for individual components.
 
 ## Running the Generated Project
 After generating the project, follow these steps to set up and run the project:
@@ -79,3 +101,45 @@ After generating the project, follow these steps to set up and run the project:
     ```
 
 This template aims to help you start your Python projects quickly, maintain consistency, and follow best practices effortlessly.
+
+Versioning and Releases
+To ensure stability and consistency across projects generated from this template, we use bumpversion for version management. Whenever a stable update or improvement is made to the template, we recommend using bumpversion to create a new version and tag it.
+
+Using bumpversion for Versioning
+We follow semantic versioning (MAJOR.MINOR.PATCH) to manage template versions:
+
+MAJOR version: Increments for incompatible API changes or major updates.
+MINOR version: Increments for new features that are backwards compatible.
+PATCH version: Increments for backwards-compatible bug fixes or minor improvements.
+Steps to Create a New Version and Tag
+Update the version number and create a tag in one step:
+
+For a major release:
+bash
+Copier le code
+bumpversion major
+For a minor release:
+bash
+Copier le code
+bumpversion minor
+For a patch release:
+bash
+Copier le code
+bumpversion patch
+Push the changes (including the new tag) to the remote repository:
+
+bash
+Copier le code
+git push origin main --tags
+Example Workflow
+If you’ve made changes and want to release version 1.2.0, you only need to run:
+
+bash
+Copier le code
+bumpversion minor
+git push origin main --tags
+This command will:
+
+Increment the version in the appropriate files.
+Commit the changes with a message like Bump version: X.Y.Z → X.Y+1.0.
+Create a Git tag corresponding to the new version (e.g., v1.2.0).
