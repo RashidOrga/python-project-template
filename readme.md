@@ -102,10 +102,10 @@ After generating the project, follow these steps to set up and run the project:
 
 This template aims to help you start your Python projects quickly, maintain consistency, and follow best practices effortlessly.
 
-Versioning and Releases
-To ensure stability and consistency across projects generated from this template, we use bumpversion for version management. Whenever a stable update or improvement is made to the template, we recommend using bumpversion to create a new version and tag it.
+## Versioning and Releases
+To ensure stability and consistency across projects generated from this template, we use bump2version for version management. Whenever a stable update or improvement is made to the template, we recommend using bump2version to create a new version and tag it.
 
-Using bumpversion for Versioning
+### Using bump2version for Versioning
 We follow semantic versioning (MAJOR.MINOR.PATCH) to manage template versions:
 
 MAJOR version: Increments for incompatible API changes or major updates.
@@ -115,31 +115,32 @@ Steps to Create a New Version and Tag
 Update the version number and create a tag in one step:
 
 For a major release:
-bash
-Copier le code
-bumpversion major
+```bash
+bump2version major
+```
 For a minor release:
-bash
-Copier le code
-bumpversion minor
+```bash
+bump2version minor
+```
 For a patch release:
-bash
-Copier le code
-bumpversion patch
+```bash
+bump2version patch
+```
 Push the changes (including the new tag) to the remote repository:
 
-bash
-Copier le code
+```bash
 git push origin main --tags
-Example Workflow
+```
+
+### Example Workflow
 If you’ve made changes and want to release version 1.2.0, you only need to run:
 
-bash
-Copier le code
-bumpversion minor
+```bash
+bump2version minor
 git push origin main --tags
+```
 This command will:
 
-Increment the version in the appropriate files.
-Commit the changes with a message like Bump version: X.Y.Z → X.Y+1.0.
-Create a Git tag corresponding to the new version (e.g., v1.2.0).
+- Increment the version in the appropriate files.
+- Commit the changes with a message like Bump version: X.Y.Z → X.Y+1.0.
+- Create a Git tag corresponding to the new version (e.g., v1.2.0).
