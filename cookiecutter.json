@@ -3,6 +3,5 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_owner": "Last_name First_Name",
     "project_owner_email": "{{ cookiecutter.project_owner.lower().replace(' ','.') }}@gmail.com",
-    "description": "Skeleton project created by Cookiecutter PyPackage",
-    "version": "0.0.1"
+    "description": "Skeleton project created by Cookiecutter PyPackage"
 }

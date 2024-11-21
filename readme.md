@@ -1,81 +1,92 @@
+
 # Python Project Template
 
-Welcome to **python-project-template**! This is a starting point for a new Python project in our organization.
+Welcome to **python-project-template**! This repository is a standardized starting point for new Python projects in our organization.
 
-This repository is a template designed to help developers quickly set up a new Python project with best practices and standardized configurations using Cookiecutter. 
+This template uses **Cookiecutter** to generate a project structure aligned with best practices and standardized configurations.
+
 
 ## Project Purpose
 
-This template serves as a flexible starting point for creating Python-based projects, whether for application development, data science, or other Python-focused tasks. With this template, users can generate a new project directory structure complete with essential files, configurations, and documentation templates. This allows developers to maintain consistency and quality across multiple projects.
+This template serves as a foundation for quickly initiating Python projects, whether for application development, data science, or other Python-related tasks. It ensures consistency and quality across projects within the organization.
+
 
 ## How It Works
 
-This project template uses **Cookiecutter**, a tool for creating new projects from templates. With Cookiecutter, users can generate a new project by filling out a few prompts, which will then populate predefined values in the template. The generated project includes:
+### Generate a Project
 
-- Standardized project structure
-- Pre-configured `dockerfile` for containerized development
-- Dependency management files (`requirements.txt`, `environment.yml`)
-- Basic directory setup for `src`, `tests`, and more
+1. **Install Cookiecutter** if you haven't already:
+   ```bash
+   pip install cookiecutter
+   ```
 
-## Getting Started
+2. **Create a project** from the template:
+   ```bash
+   cookiecutter /path/to/this/python-project-template
+   ```
+   Replace `/path/to/this/python-project-template` with the local path or the repository URL containing this template.
 
-To generate a new project based on this template, you will need to have **Cookiecutter** installed. If you haven’t installed it yet, you can do so using `pip`:
+### Generated Structure
 
-```bash
-pip install cookiecutter
-```
-
-Once installed, you can create a new project by running the following command and following the prompts:
-
-```bash
-cookiecutter /path/to/this/python-project-template
-```
-
-Replace /path/to/this/template with the path to this template directory or the Git repository URL if the template is hosted online.
-
-## Project Structure
-The generated project will include the following structure:
+Here’s an overview of the generated structure:
 
 ```bash
 {{ cookiecutter.project_slug }}/
-.
 ├── .created_from
+├── .bumpversion.cfg
 ├── CodeOwner
 ├── README.md
-├── datas
+├── datas/
 ├── dockerfile
-├── docs
-├── envs
-│   ├── environment.yml
-│   └── requirements.txt
-├── examples
-├── src
-│   ├── backend
-│   │   ├── api.py
-│   │   └── {{ cookiecutter.project_name }}
-│   └── frontend
-└── tests
-    ├── integration
-    └── unitary
-        └── __init__.py
+├── docs/
+├── envs/
+│   ├── environment.yml
+│   └── requirements.txt
+├── examples/
+├── src/
+│   ├── backend/
+│   └── frontend/
+└── tests/
+    ├── integration/
+    └── unitary/
 ```
 
-- dockerfile: Configuration for Docker to containerize the application.
-- envs/: Environment configuration files to manage dependencies.
-- src/: Source code directory for application development.
-- tests/: Directory for unit and integration tests.
+### Key Points
 
+- **`.created_from`**: Metadata file indicating the origin of the generated project.
+- **`.bumpversion.cfg`**: Configuration for managing project versioning, initializing to 0.0.0.
+- **`datas/`**: Folder for storing datasets or related files.
+- **`envs/`**: Dependencies listed in `requirements.txt` (pip) or `environment.yml` (Conda).
+- **`src/`**: Source code, organized into submodules like `backend` and `frontend`.
+- **`tests/`**: Unit and integration tests to ensure code quality.
 
-## Running the Generated Project
-After generating the project, follow these steps to set up and run the project:
+## Template Version Management
 
-1. Set up the environment: Use the requirements.txt or environment.yml to create your Python environment.
+We use **bump2version** to manage the versioning of this template, following semantic versioning (**MAJOR.MINOR.PATCH**):
 
-2. Build and run the Docker container (if applicable):
+- **MAJOR**: Increment for major or breaking changes.
+- **MINOR**: Increment for new features that are backward compatible.
+- **PATCH**: Increment for bug fixes or minor improvements.
 
-    ```bash
-    docker build -t your_project_name .
-    docker run your_project_name
-    ```
+### Steps to Update and Tag a New Version
 
-This template aims to help you start your Python projects quickly, maintain consistency, and follow best practices effortlessly.
+1. **Make your changes** (e.g., add files, folders, or new features to the template).
+2. **Increment the version**:
+   - For a major release:
+     ```bash
+     bump2version major
+     ```
+   - For a minor release:
+     ```bash
+     bump2version minor
+     ```
+   - For a patch release:
+     ```bash
+     bump2version patch
+     ```
+3. **Push the changes and the new tag**:
+   ```bash
+   git push origin main --tags
+   ```
+
+This workflow ensures that every change to the template is versioned and tracked consistently.
