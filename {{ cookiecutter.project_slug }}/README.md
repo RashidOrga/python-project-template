@@ -1,4 +1,4 @@
-### {{ cookiecutter.project_name }}
+### {{ cookiecutter.project_name }} 
 ## Description
 {{ cookiecutter.description }}
 
@@ -6,4 +6,4 @@
 {{ cookiecutter.project_owner }} <{{ cookiecutter.project_owner_email }}>
 
 ## Version
-V{{ cookiecutter.version }}
+{{ cookiecutter.project_name }} v0.0.0
