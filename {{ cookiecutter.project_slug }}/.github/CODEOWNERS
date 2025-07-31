@@ -1,4 +1,4 @@
 # This file defines code owners and reviewers protecting the master branch. 
 # Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
-/.github @oa-ri/devops-team
+/.github @oa-ri/DevOps_Team
